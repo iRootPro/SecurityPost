@@ -2,29 +2,30 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-HOST = os.getenv('HOST_DB')
-PORT = os.getenv('PORT_DB')
-NAME = os.getenv('NAME_DB')
-USER = os.getenv('USER_DB')
-PASSWORD = os.getenv('PASSWORD_DB')
-DEBUG_DB = os.getenv('DEBUG_DB')
+DB_HOST = os.getenv('DB_HOST')
+DB_PORT = os.getenv('DB_PORT')
+DB_NAME = os.getenv('DB_NAME')
+DB_USERNAME = os.getenv('DB_USERNAME')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DJANGO_DEBUG = os.getenv('DJANGO_DEBUG')
+DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': HOST,
-        'PORT': PORT,
-        'NAME': NAME,
-        'USER': USER,
-        'PASSWORD': PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+        'NAME': DB_NAME,
+        'USER': DB_USERNAME,
+        'PASSWORD': DB_PASSWORD,
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = DJANGO_SECRET_KEY
 
-DEBUG = DEBUG_DB
+DEBUG = DJANGO_DEBUG
 
 ROOT_URLCONF = "project.urls"
 
